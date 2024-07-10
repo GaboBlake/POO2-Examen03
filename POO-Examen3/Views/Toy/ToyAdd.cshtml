@@ -16,6 +16,21 @@
         <input type="textarea" class="form-control" asp-for="Description" rows="5">
         <label asp-for="Description">Descripcion</label>
     </div>
+
+     <div class="mb-3">
+        <select class="form-select" asp-for="KindId" asp-items="@Model.KindToys" >
+            <option>Seleccionar categoria</option>
+        </select>
+        <span asp-validation-for="KindId" class="text-danger" ></span>
+    </div>
+
+     <div class="mb-3">
+        <select class="form-select" asp-for="CategoryId" asp-items="@Model.CategoryToys" >
+            <option>Seleccionar categoria</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger" ></span>
+    </div>
+
     <button class="btn btn-outline-primary">Guardar</button>
     <a class="btn btn-outline-secundary" asp-action="ToyList" asp-controller="Toy">Regresar</a>
 </form>

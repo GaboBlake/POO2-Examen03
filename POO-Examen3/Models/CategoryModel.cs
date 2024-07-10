@@ -8,5 +8,6 @@ namespace POO_Examen3.Models
     public class CategoryModel : BaseModel
     {
         
+
     }
 }

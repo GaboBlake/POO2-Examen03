@@ -12,7 +12,7 @@ namespace POO_Examen3
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("SqlServer.EnableLegacyTimestampBehavior", true);
         }
 
         public DbSet<Category> CategoryToys { get; set; }

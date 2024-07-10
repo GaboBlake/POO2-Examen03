@@ -14,5 +14,7 @@ namespace POO_Examen3.Entities
 
         public string? Description { get; set; }
 
+        
+
     }
 }

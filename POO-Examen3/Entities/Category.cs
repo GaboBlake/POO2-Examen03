@@ -7,6 +7,6 @@ namespace POO_Examen3.Entities
 {
     public class Category : BaseEntity
     {
-        
+        public List <Toy> Toys {get; set;} 
     }
 }

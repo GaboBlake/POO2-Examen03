@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using POO_Examen3;
 
@@ -11,9 +12,11 @@ using POO_Examen3;
 namespace POO_Examen3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240710014819_CrearMigracion")]
+    partial class CrearMigracion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,23 +263,13 @@ namespace POO_Examen3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("KindId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("KindId");
 
                     b.ToTable("Toys");
                 });
@@ -330,31 +323,6 @@ namespace POO_Examen3.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("POO_Examen3.Entities.Toy", b =>
-                {
-                    b.HasOne("POO_Examen3.Entities.Category", "Category")
-                        .WithMany("Toys")
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("POO_Examen3.Entities.Kind", "Kind")
-                        .WithMany("Toys")
-                        .HasForeignKey("KindId");
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Kind");
-                });
-
-            modelBuilder.Entity("POO_Examen3.Entities.Category", b =>
-                {
-                    b.Navigation("Toys");
-                });
-
-            modelBuilder.Entity("POO_Examen3.Entities.Kind", b =>
-                {
-                    b.Navigation("Toys");
                 });
 #pragma warning restore 612, 618
         }
